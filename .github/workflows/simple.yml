@@ -19,4 +19,12 @@ jobs:
             - name: echo a string
               run: echo "second World"
             - name: access state
-              run: echo "::set-output name=boobs::boobs"
+              run: echo "::set-output name=boobs::boobs" 
+
+    blank:
+        runs-on: ubuntu-latest
+        steps:
+            - name: ml
+              run: |
+                node -v
+                npm -v
