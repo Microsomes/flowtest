@@ -9,3 +9,8 @@ jobs:
         steps:
             - name: echo a string
               run: echo "Hello World"
+    second-shall-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo a string
+              run: echo "second World"
