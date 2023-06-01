@@ -1,16 +1,26 @@
 name: Shell Commands
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-    run-shell-command:
-        runs-on: ubuntu-latest
-        steps:
-            - name: echo a string
-              run: echo "Hello World"
-    second-shall-command:
-        runs-on: ubuntu-latest
-        steps:
-            - name: echo a string
-              run: echo "second World"
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up environment
+        id: step1
+        run: |
+          echo "Hello World"
+          echo "::set-output name=myOutput::Hello World"
+
+  second-shell-command:
+    needs: run-shell-command
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve output
+        id: step2
+        run: echo "The output is ${{ needs.run-shell-command.outputs.myOutput }}"
+      - name: Display output
+        run: echo "Output: ${{ steps.step2.outputs.myOutput }}"
