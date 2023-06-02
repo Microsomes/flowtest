@@ -21,4 +21,4 @@ jobs:
       - name: setoutput
         run: echo "::set-output name=boobs::boobs"
       - name: echo boobs
-        run: echo "${{ steps.setoutput.outputs.boobs }}""
+        run: echo "${{ steps.setoutput.outputs.boobs }}"
