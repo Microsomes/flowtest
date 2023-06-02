@@ -1,24 +1,17 @@
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        required: true
-        default: 'dev'
-      isprod:
-        description: 'Is this a production deployment?'
-        required: true
-        default: false
-        type: booleans
+on: [push]
 
 
 jobs:
-  deploy:
+  job1:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
     steps:
-      - name: echo
-        run: echo "Hello World ${{inputs.environment }}"
-      - name: setoutput
-        run: echo "::set-output name=output_value::boobs"
-      - name: echo output
-        run: echo "${{ steps.setoutput.outputs.output_value }}"
+      - id: step1
+        run: echo "::set-output name=test::test"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo ${{ needs.job1.outputs.output1 }}
+    
