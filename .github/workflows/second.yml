@@ -5,6 +5,11 @@ on:
         description: 'Environment to deploy to'
         required: true
         default: 'dev'
+      isprod:
+        description: 'Is this a production deployment?'
+        required: true
+        default: false
+        type: booleans
 
 
 jobs:
@@ -12,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo "Hello World ${{ github.event.inputs.environment }}"
+        run: echo "Hello World ${{inputs.environment }}"
