@@ -1,5 +1,5 @@
 on:
-  workflow_input:
+  workflow_dispatch:
     inputs:
       environment:
         description: 'Environment to deploy to'
