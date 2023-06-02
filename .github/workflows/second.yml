@@ -1,0 +1,15 @@
+on:
+  workflow_input:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "Hello World ${{ github.event.inputs.environment }} 
