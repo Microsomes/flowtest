@@ -19,6 +19,6 @@ jobs:
       - name: echo
         run: echo "Hello World ${{inputs.environment }}"
       - name: setoutput
-        run: echo "::set-output name=boobs::boobs"
-      - name: echo boobs
-        run: echo "${{ steps.setoutput.outputs.boobs }}"
+        run: echo "::set-output name=output_value::boobs"
+      - name: echo output
+        run: echo "${{ steps.setoutput.outputs.output_value }}"
