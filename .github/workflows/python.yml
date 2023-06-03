@@ -13,3 +13,7 @@ jobs:
           python-version: '3.8'
       - name: run python
         run: python main.py
+      - name: catty
+        run: |
+          contents=${cat text.txt}
+          echo $contents
