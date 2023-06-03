@@ -21,6 +21,7 @@ jobs:
           contents=$(cat test.txt)
           echo $contents
           echo "::set-output name=test::$contents"
+          echo "action_state=$contents" >> $GITHUB_ENV
 
   job2:
     runs-on: ubuntu-latest
@@ -28,3 +29,5 @@ jobs:
     steps:
       - name: print output
         run: echo "${{ needs.job1.outputs.output1 }}"
+      - name: print env
+        run: echo "${{env.action_state }}"
