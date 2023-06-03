@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: step1
         id: step1
-        run: echo "test=hello" >> $GITHUB_OUTPUT
+        run: echo "test=wag1, lkmlkm=ookkm" >> $GITHUB_OUTPUT
 
 
   job2:
