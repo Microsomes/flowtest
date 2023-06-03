@@ -21,5 +21,8 @@ jobs:
       - name: step3
         id: step3
         run: echo "wagenv=wag1" >> $GITHUB_ENV
+      - name: step4
+        id: step4
+        run: echo "${{env.wagenv}}"
   
     
