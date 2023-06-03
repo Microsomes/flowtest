@@ -16,6 +16,7 @@ jobs:
       - name: run python
         run: python main.py
       - name: catty
+        id: step1
         run: |
           contents=$(cat test.txt)
           echo $contents
