@@ -18,4 +18,8 @@ jobs:
     steps:
       - name: step2
         run: echo ${{ needs.job1.outputs.output1 }}
+      - name: step3
+        id: step3
+        run: echo "wagenv=wag1" >> $GITHUB_ENV
+  
     
