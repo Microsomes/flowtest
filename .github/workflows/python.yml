@@ -1,0 +1,13 @@
+on: ['push']
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: run python
+        run: python main.py
