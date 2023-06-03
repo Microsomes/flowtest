@@ -24,5 +24,10 @@ jobs:
       - name: step4
         id: step4
         run: echo "${{env.wagenv}}"
-  
+      - name: step5
+        id: step5
+        run: echo "wag123=wag1" >> $GITHUB_STATE
+      - name: step6
+        id: step6
+        run: echo "${{state.wag123}}"
     
