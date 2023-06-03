@@ -4,13 +4,18 @@ on: ['push']
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
     steps:
-  - name: Set the value
-    id: step_one
-    run: |
-      echo "action_state=yellow" >> "$GITHUB_ENV"
-  - name: Use the value
-    id: step_two
-    run: |
+      name: step1
+      id: step1
+      run: echo "test=hello" >> $GITHUB_OUTPUT
 
-      echo "${{ env.action_state }}" # This will output 'yellow'
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: step2
+        run: echo ${{ needs.job1.outputs.output1 }}
+    
